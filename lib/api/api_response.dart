@@ -1,7 +1,7 @@
 class ApiResponse {
   bool success;
-  bool err;
-  bool message;
+  String err;
+  String message;
   dynamic data;
 
   ApiResponse({this.success, this.err, this.message, this.data});

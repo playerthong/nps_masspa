@@ -19,6 +19,7 @@ class S implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
+  String get close => "Close";
   String get login_phone_hint => "";
   String get login_title => "Let's listening inside your customer";
   String get masspa => "Masspa";
@@ -40,6 +41,8 @@ class $vi extends S {
   String get masspa => "Masspa";
   @override
   String get welcome => "Welcome";
+  @override
+  String get close => "Đóng";
   @override
   String get please_wait => "Please wait...";
 }

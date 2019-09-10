@@ -4,6 +4,8 @@ import 'package:nps_masspa/scopedmodel/nps_masspa_model.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:nps_masspa/screen/splash_screen.dart';
 import 'package:nps_masspa/screen/login_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
 
 void main() => runApp(NPSMasspaApp());
 
@@ -36,14 +38,13 @@ class NPSMasspaAppState extends State<NPSMasspaApp>{
                 theme: ThemeData(
                   primarySwatch: Colors.red,
                 ),
-                localizationsDelegates: const <LocalizationsDelegate<WidgetsLocalizations>>[
+                localizationsDelegates: [
+                  GlobalMaterialLocalizations.delegate,
                   S.delegate,
                 ],
                 supportedLocales: S.delegate.supportedLocales,
                 localeResolutionCallback:
                 S.delegate.resolution(fallback: const Locale('vi', '')),
-                localeListResolutionCallback:
-                S.delegate.listResolution(fallback: const Locale('en', '')),
                 title: 'Flutter Demo',
                 home: LoginScreen(title: 'Flutter Demo Home Page'),
               );
