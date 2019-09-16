@@ -7,6 +7,8 @@ import 'package:nps_masspa/generated/i18n.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:http/http.dart' as http;
 import 'package:nps_masspa/screen/base_screen.dart';
+import 'package:nps_masspa/utils/dimensions.dart';
+
 
 class LoginScreen extends BaseScreen {
 
@@ -62,14 +64,14 @@ class LoginState extends BaseState<LoginScreen> {
                 child: Column(
                   children: <Widget>[
                     Container(
-                      padding: const EdgeInsets.only(top: 150.0, bottom: 50.0),
+                      padding: const EdgeInsets.only(top: 100.0, bottom: 30.0),
                       child: Center(
                         child: new Column(
                           children: <Widget>[
                             Container(
                               height: 128.0,
                               width: 128.0,
-                              child: Image.asset("assets/ic_logo_white.png", fit: BoxFit.contain),
+                              child: Image.asset("assets/ic_logo.png", fit: BoxFit.contain),
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.white,
@@ -83,100 +85,35 @@ class LoginState extends BaseState<LoginScreen> {
                               padding: const EdgeInsets.all(16.0),
                               child: new Text(
                                 S.of(context).login_title,
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.black,fontSize:16 ),
                               ),
                             )
                           ],
                         ),
                       ),
                     ),
-
                     new Container(
                       width: MediaQuery
                           .of(context)
                           .size
                           .width,
-                      margin: const EdgeInsets.only(
-                          left: 40.0, right: 40.0, top: 10.0),
+                      margin: const EdgeInsets.only(left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                              color: Colors.black,
-                              width: 0.5,
-                              style: BorderStyle.solid),
-                        ),
+                        color: MasspaColor.grayColor,
+                        borderRadius: new BorderRadius.all(new Radius.circular(Dimensions.roundRadius)),
                       ),
-                      padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+                      padding: const EdgeInsets.only(left: 8, right: 8,top: 8,bottom: 8),
                       child: new Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          new Padding(
-                            padding:
-                            EdgeInsets.only(top: 10.0, bottom: 10.0, right: 00.0),
-                            child: Icon(
-                              Icons.location_city,
-                              color: Colors.black,
-                            ),
-                          ),
-                          new Expanded(
-                            child: TextFormField(
-                              textAlign: TextAlign.center,
-                              controller: companyCodeController,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'Your company code',
-                                hintStyle: TextStyle(color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    new Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      margin: const EdgeInsets.only(left: 40.0, right: 40.0),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                              color: Colors.black,
-                              width: 0.5,
-                              style: BorderStyle.solid),
-                        ),
-                      ),
-                      padding: const EdgeInsets.only(left: 0.0, right: 10.0),
-                      child: new Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          new Padding(
-                            padding:
-                            EdgeInsets.only(top: 10.0, bottom: 10.0, right: 00.0),
-                            child: Icon(
-                              Icons.phone,
-                              color: Colors.black,
-                            ),
-                          ),
                           new Expanded(
                             child: TextFormField(
                               textAlign: TextAlign.center,
                               keyboardType: TextInputType.phone,
                               controller: usernameController,
-                              validator: (text){
-                                if(text.length<7){
-                                  return "phone number must be more than 7";
-                                }else{
-                                  return null;
-                                }
-                              },
                               onSaved: (String val){
-
                               },
                               decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -193,30 +130,34 @@ class LoginState extends BaseState<LoginScreen> {
                           .of(context)
                           .size
                           .width,
-                      margin: const EdgeInsets.only(
-                          left: 40.0, right: 40.0, top: 10.0),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        border: Border(
-                          bottom: BorderSide(
-                              color: Colors.black,
-                              width: 0.5,
-                              style: BorderStyle.solid),
-                        ),
-                      ),
-                      padding: const EdgeInsets.only(left: 0.0, right: 10.0),
+                      margin: const EdgeInsets.only(left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin),
+                      alignment: Alignment.topLeft,
+                      padding: const EdgeInsets.only(left: 8, right: 8,top: 8,bottom: 8),
                       child: new Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          new Padding(
-                            padding:
-                            EdgeInsets.only(top: 10.0, bottom: 10.0, right: 00.0),
-                            child: Icon(
-                              Icons.lock_open,
-                              color: Colors.black,
-                            ),
-                          ),
+                            Text('*Hello',style: TextStyle(color:Colors.red))
+                        ],
+                      ),
+                    ),
+                    new Container(
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
+                      margin: const EdgeInsets.only(
+                          left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin, top: 30.0),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: MasspaColor.grayColor,
+                        borderRadius: new BorderRadius.all(new Radius.circular(Dimensions.roundRadius)),
+                      ),
+                      padding: const EdgeInsets.only(left: 8, right: 8,top: 8,bottom: 8),
+                      child: new Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
                           new Expanded(
                             child: TextFormField(
                               obscureText: true,
@@ -233,14 +174,13 @@ class LoginState extends BaseState<LoginScreen> {
                       ),
                     ),
 
-
                     new Container(
                       width: MediaQuery
                           .of(context)
                           .size
                           .width,
                       margin: const EdgeInsets.only(
-                          left: 40.0, right: 40.0, top: 30.0),
+                          left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin, top: 30.0),
                       alignment: Alignment.center,
                       child: new Row(
                         children: <Widget>[
