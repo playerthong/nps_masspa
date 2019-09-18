@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/scopedmodel/nps_masspa_model.dart';
-import 'package:nps_masspa/screen/nps_choose_branch_screen.dart';
-import 'package:nps_masspa/screen/nps_mood_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:nps_masspa/screen/splash_screen.dart';
 import 'package:nps_masspa/screen/login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:nps_masspa/utils/constants.dart';
 
-void main(){
+void main() =>() {
   Constants.setEnvironment(Environment.DEV);
   runApp(NPSMasspaApp());
-}
+};
 
 class NPSMasspaApp extends StatefulWidget {
 
@@ -50,9 +48,8 @@ class NPSMasspaAppState extends State<NPSMasspaApp>{
                 supportedLocales: S.delegate.supportedLocales,
                 localeResolutionCallback:
                 S.delegate.resolution(fallback: const Locale('vi', '')),
-                title: 'Flutter Demo',
-                //home: LoginScreen(title: 'Flutter Demo Home Page'),
-                home: NPSChooseBranchScreen(title: 'Flutter Mood Demo',),
+                title: 'NPS'+Constants.ENV,
+                home: LoginScreen(title: 'Flutter Demo Home Page'),
               );
             }
         ));
