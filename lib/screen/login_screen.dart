@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nps_masspa/generated/i18n.dart';
+import 'package:nps_masspa/model/login_resource.dart';
+import 'package:nps_masspa/model/login_response.dart';
 import 'package:nps_masspa/scopedmodel/login_model.dart';
 import 'package:nps_masspa/utils/masspa_color.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -8,7 +10,7 @@ import 'package:progress_dialog/progress_dialog.dart';
 import 'package:http/http.dart' as http;
 import 'package:nps_masspa/screen/base_screen.dart';
 import 'package:nps_masspa/utils/dimensions.dart';
-
+import 'package:libphonenumber/libphonenumber.dart';
 
 class LoginScreen extends BaseScreen {
 
@@ -23,13 +25,28 @@ class LoginState extends BaseState<LoginScreen> {
 
   LoginModel loginModel;
 
-  TextEditingController usernameController=new TextEditingController();
-  TextEditingController passwordController=new TextEditingController();
-  TextEditingController companyCodeController=new TextEditingController();
+  final TextEditingController usernameController=new TextEditingController();
+  final TextEditingController passwordController=new TextEditingController();
+  final TextEditingController companyCodeController=new TextEditingController();
+
+  String errorUsername="";
+  String errorPassword="";
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    usernameController.dispose();
+    passwordController.dispose();
+    companyCodeController.dispose();
+    super.dispose();
+  }
+
 
   @override
   void initState() {
     loginModel = new LoginModel();
+    usernameController.text="0932879813";
+    passwordController.text="123123";
   }
 
   @override
@@ -64,7 +81,7 @@ class LoginState extends BaseState<LoginScreen> {
                 child: Column(
                   children: <Widget>[
                     Container(
-                      padding: const EdgeInsets.only(top: 100.0, bottom: 30.0),
+                      padding: const EdgeInsets.only(top: 100.0, bottom: 10.0),
                       child: Center(
                         child: new Column(
                           children: <Widget>[
@@ -137,7 +154,7 @@ class LoginState extends BaseState<LoginScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                            Text('*Hello',style: TextStyle(color:Colors.red))
+                            Text(errorUsername,style: TextStyle(color:Colors.red))
                         ],
                       ),
                     ),
@@ -147,7 +164,7 @@ class LoginState extends BaseState<LoginScreen> {
                           .size
                           .width,
                       margin: const EdgeInsets.only(
-                          left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin, top: 30.0),
+                          left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin, top: 8.0),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: MasspaColor.grayColor,
@@ -165,7 +182,7 @@ class LoginState extends BaseState<LoginScreen> {
                               controller: passwordController,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
-                                hintText: '*********',
+                                hintText: 'Enter your password',
                                 hintStyle: TextStyle(color: Colors.black),
                               ),
                             ),
@@ -173,14 +190,29 @@ class LoginState extends BaseState<LoginScreen> {
                         ],
                       ),
                     ),
-
+                    new Container(
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
+                      margin: const EdgeInsets.only(left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin),
+                      alignment: Alignment.topLeft,
+                      padding: const EdgeInsets.only(left: 8, right: 8,top: 8,bottom: 8),
+                      child: new Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(errorPassword,style: TextStyle(color:Colors.red))
+                        ],
+                      ),
+                    ),
                     new Container(
                       width: MediaQuery
                           .of(context)
                           .size
                           .width,
                       margin: const EdgeInsets.only(
-                          left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin, top: 30.0),
+                          left: Dimensions.marginLeftRightLogin, right: Dimensions.marginLeftRightLogin, top: 8.0),
                       alignment: Alignment.center,
                       child: new Row(
                         children: <Widget>[
@@ -188,13 +220,13 @@ class LoginState extends BaseState<LoginScreen> {
                             child: new FlatButton(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 20.0, horizontal: 20.0),
-                              color: Colors.white,
+                              color: MasspaColor.primaryColor,
                               onPressed:
                                 login
                               ,
                               child: Text(
-                                "Log In",
-                                style: TextStyle(color: Colors.redAccent),
+                                "Đăng Nhập",
+                                style: TextStyle(color: Colors.white,fontSize: 22),
                               ),
                             ),
                           ),
@@ -266,20 +298,58 @@ class LoginState extends BaseState<LoginScreen> {
     );
   }
 
-  void login() {
-    if (formKey.currentState.validate()) {
-      showProgressDialog();
 
-      loginModel.login("sdfds", "sdfds", "sdfdf",(httpResponse,apiResponse) async {
+
+
+  void login() async{
+    String username=usernameController.text;
+    String password=passwordController.text;
+    String countryCode="";
+    errorUsername="";
+    errorPassword="";
+    if(username==null || username.isEmpty){
+      setState(() {
+        errorUsername="*Bạn chưa nhập số điện thoại.";
+      });
+      return;
+    }
+    if(password==null || password.isEmpty){
+      setState(() {
+        errorPassword="*Bạn chưa mật khẩu.";
+      });
+      return;
+    }
+    String prefix=username.substring(0,1);
+    if(prefix!="+"){
+      username="+84"+username;
+    }
+    bool isValid= await PhoneNumberUtil.isValidPhoneNumber(phoneNumber: username,isoCode: 'US');
+
+    if(!isValid){
+      errorUsername="Số điện thoại của bạn không hợp lệ.";
+      return;
+    }
+    String normalizedNumber = await PhoneNumberUtil.normalizePhoneNumber(
+        phoneNumber: username, isoCode: 'US');
+    RegionInfo regionInfo =
+    await PhoneNumberUtil.getRegionInfo(phoneNumber: username, isoCode: 'US');
+    username=regionInfo.formattedPhoneNumber;
+    countryCode="+"+regionInfo.regionPrefix;
+    showProgressDialog();
+    LoginResource loginResource=new LoginResource(username: username,password: password,countryCode: countryCode);
+    loginModel.login(loginResource,(httpResponse,apiResponse) async  {
         hideProgressDialog();
-        showAlertDialog( "Em ok");
-        if(apiResponse.success){
+        if(apiResponse.isSuccess()){
 
         }else{
-
+          //get list branch
+          if(apiResponse.code==1167){
+            LoginResponse loginResponse = LoginResponse.fromJson(apiResponse.data);
+            //go to branch screen
+          }
         }
-      });
-    }
+    });
+
   }
 
   void _showDialog() {

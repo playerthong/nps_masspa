@@ -5,9 +5,12 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:nps_masspa/screen/splash_screen.dart';
 import 'package:nps_masspa/screen/login_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:nps_masspa/utils/constants.dart';
 
-
-void main() => runApp(NPSMasspaApp());
+void main(){
+  Constants.setEnvironment(Environment.DEV);
+  runApp(NPSMasspaApp());
+}
 
 class NPSMasspaApp extends StatefulWidget {
 

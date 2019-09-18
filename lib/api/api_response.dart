@@ -1,22 +1,22 @@
 class ApiResponse {
-  bool success;
-  String err;
+  int code;
+  int error;
   String message;
   dynamic data;
 
-  ApiResponse({this.success, this.err, this.message, this.data});
+  ApiResponse({this.code, this.error, this.message, this.data});
 
-  ApiResponse.fromJson(Map<String, dynamic> json) {    
-    this.success = json['success'];
-    this.err = json['err'];
+  ApiResponse.fromJson(Map<String, dynamic> json) {
+    this.code = json['code'];
+    this.error = json['error'];
     this.message = json['message'];
     this.data = json['data'] != null ? (json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['err'] = this.err;
+    data['code'] = this.code;
+    data['error'] = this.error;
     data['message'] = this.message;
     if (this.data != null) {
       data['data'] = this.data.toJson();
@@ -24,6 +24,9 @@ class ApiResponse {
     return data;
   }
 
+  bool isSuccess(){
+    return code==1? true:false;
+  }
 }
 
 
