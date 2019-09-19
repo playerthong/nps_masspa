@@ -52,7 +52,7 @@ class NPSMasspaAppState extends State<NPSMasspaApp>{
                 S.delegate.resolution(fallback: const Locale('vi', '')),
                 title: 'Flutter Demo',
                 //home: LoginScreen(title: 'Flutter Demo Home Page'),
-                home: NPSChooseBranchScreen(title: 'Flutter Mood Demo',),
+                home: SplashScreen(title: 'Flutter Mood Demo',),
               );
             }
         ));

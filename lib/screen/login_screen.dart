@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/model/login_resource.dart';
-import 'package:nps_masspa/model/login_response.dart';
+import 'package:nps_masspa/model/branch_response.dart';
 import 'package:nps_masspa/scopedmodel/login_model.dart';
 import 'package:nps_masspa/utils/masspa_color.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:nps_masspa/generated/i18n.dart';
+import 'package:nps_masspa/utils/screen_helper.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:http/http.dart' as http;
 import 'package:nps_masspa/screen/base_screen.dart';
@@ -343,8 +344,9 @@ class LoginState extends BaseState<LoginScreen> {
 
         }else{
           //get list branch
-          if(apiResponse.code==1167){
-            LoginResponse loginResponse = LoginResponse.fromJson(apiResponse.data);
+          if(apiResponse.error==1167){
+            BranchResponse branchResponse = BranchResponse.fromJson(apiResponse.data);
+            ScreenHelper.goToSelectBranch(context,true, branchResponse, loginResource);
             //go to branch screen
           }
         }

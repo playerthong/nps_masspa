@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:nps_masspa/model/branch_model.dart';
+import 'package:nps_masspa/model/branch.dart';
+import 'package:nps_masspa/model/branch_response.dart';
+import 'package:nps_masspa/model/login_resource.dart';
 import 'package:nps_masspa/screen/base_screen.dart';
 import 'package:toast/toast.dart';
 
 class NPSChooseBranchScreen extends BaseScreen {
-  NPSChooseBranchScreen({Key key, title}) : super(key: key);
+  final BranchResponse branchResponse;
+  final LoginResource loginResource;
+  NPSChooseBranchScreen(this.branchResponse, this.loginResource, {Key key, title}) : super(key: key);
+
+
 
   @override
   NPSChooseBranchState createState() {
@@ -62,7 +68,7 @@ class NPSChooseBranchState extends BaseState<NPSChooseBranchScreen> {
     for (int i = 0; i < 10; i++) {
       Branch branch = new Branch();
       branch.branchName = 'Branch ' + (i + 1).toString();
-      branch.isSelected = false;
+      //branch.isSelected = false;
 
       objects.add(branch);
     }
@@ -89,11 +95,14 @@ class NPSBranchListState extends State<NPSBranchListWidget> {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       padding: EdgeInsets.only(left: 240.0, right: 240.0),
+      /*
       itemBuilder: (BuildContext context, int index) {
         return NPSBranchItemWidget(branch: widget.objects[index], isSelected: widget.objects[index].isSelected, callback: (){
           onItemSelected(widget.objects[index], index);
         });
       },
+      */
+
       separatorBuilder: (BuildContext context, int index){
         return Divider(
             height: 0.0,
@@ -106,9 +115,9 @@ class NPSBranchListState extends State<NPSBranchListWidget> {
   void onItemSelected(Branch branch, int index) {
     setState(() {
       if (oldIndexSelected > -1) {
-        widget.objects[oldIndexSelected].isSelected = false;
+        //widget.objects[oldIndexSelected].isSelected = false;
       }
-      branch.isSelected = true;
+      //branch.isSelected = true;
       oldIndexSelected = index;
     });
   }

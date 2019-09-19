@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nps_masspa/generated/i18n.dart';
+import 'package:nps_masspa/model/branch_response.dart';
 import 'package:nps_masspa/scopedmodel/splash_model.dart';
+import 'package:nps_masspa/storage/share_preferences.dart';
 import 'package:nps_masspa/utils/masspa_color.dart';
 import 'package:nps_masspa/utils/circle_loading.dart';
+import 'package:nps_masspa/utils/screen_helper.dart';
+import 'dart:developer';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key, this.title}) : super(key: key);
@@ -35,21 +39,50 @@ class SplashState extends State<SplashScreen>{
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(milliseconds: 2000), () {
+      checkLoginSession();
+      log('Build Splash Screen');
+    });
     return Scaffold(
       backgroundColor: MasspaColor.primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset("assets/ic_masspa.png", fit: BoxFit.contain),
-            CircleLoading(
-              color: Colors.white,
-              size: 50.0,
+            Container(
+              height: 156.0,
+              width: 156.0,
+              child: Image.asset("assets/ic_masspa.png", fit: BoxFit.contain),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.white,
+                  width: 1.0,
+                ),
+                //image: DecorationImage(image: this.logo)
+              ),
+            ),
+            new Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: CircleLoading(
+                color: Colors.white,
+                size: 50.0,
+              )
             )
+
           ],
         ),
       ),
     );
   }
 
+  void checkLoginSession() async {
+     BranchResponse loginResponse=await SharePreferences.getLoginResponse();
+     if(loginResponse!=null){
+
+     }else{
+
+        ScreenHelper.goToLogin(context,true);
+
+     }
+  }
 }

@@ -1,5 +1,5 @@
 import 'package:nps_masspa/model/login_resource.dart';
-import 'package:nps_masspa/model/login_response.dart';
+import 'package:nps_masspa/model/branch_response.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:nps_masspa/api/masspa_api.dart';
 import 'package:nps_masspa/scopedmodel/base_model.dart';
