@@ -11,7 +11,7 @@ import 'package:nps_masspa/api/api_response.dart';
 
 class LoginModel extends BaseModel {
 
-  void login(LoginResource loginResource, OnApiCallBack callBack) async{
+  static void login(LoginResource loginResource, OnApiCallBack callBack) async{
     http.Response httpResponse= await ApiService.login(loginResource);
     if(httpResponse.statusCode==200){
       //Do something

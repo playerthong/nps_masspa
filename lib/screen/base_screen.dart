@@ -1,58 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:nps_masspa/utils/string_utils.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:nps_masspa/generated/i18n.dart';
 
 abstract class BaseScreen extends StatefulWidget {
-  String title;
-  BaseScreen({Key key, this.title}) : super(key: key);
+  final String title;
 
+  BaseScreen({Key key, this.title}) : super(key: key);
 }
 
 abstract class BaseState<T extends BaseScreen> extends State<T> {
-  ProgressDialog pr;
+  ProgressDialog progressDialog;
   AlertDialog alertDialog;
   final formKey = GlobalKey<FormState>();
 
-  void showProgressDialog(){
-    if(pr!=null && !pr.isShowing()){
-      pr.show();
+  void showProgressDialog({String message}) {
+    if (progressDialog == null) {
+      progressDialog = new ProgressDialog(context, ProgressDialogType.Normal);
     }
-  }
-  void hideProgressDialog(){
-    if(pr!=null && pr.isShowing()){
-      pr.hide();
+    if (!StringUtils.isEmpty(message)) {
+      progressDialog.setMessage(message);
     }
+    progressDialog.show();
   }
 
-  void showAlertWithTitleDialog(String title,String body){
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          // return object of type Dialog
-          alertDialog= AlertDialog(
-            title: new Text(title),
-            content: new Text(body),
-            actions: <Widget>[
-              // usually buttons at the bottom of the dialog
-              new FlatButton(
-                child: new Text(S.of(context).close),
-                onPressed: () {
-                  hideAlertDialog();
-                },
-              ),
-            ],
-          );
-          return alertDialog;
-        },
-      );
+  void hideProgressDialog() {
+      if (progressDialog != null) {
+        progressDialog.hide();
+        progressDialog = null;
+      }
   }
 
-  void showAlertDialog(String body){
+  void showAlertWithTitleDialog(String title, String body) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         // return object of type Dialog
-        alertDialog= AlertDialog(
+        alertDialog = AlertDialog(
+          title: new Text(title),
           content: new Text(body),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
@@ -69,12 +54,32 @@ abstract class BaseState<T extends BaseScreen> extends State<T> {
     );
   }
 
-  void hideAlertDialog(){
-    if(alertDialog!=null && context!=null){
-      alertDialog=null;
+  void showAlertDialog(String body) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        alertDialog = AlertDialog(
+          content: new Text(body),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text(S.of(context).close),
+              onPressed: () {
+                hideAlertDialog();
+              },
+            ),
+          ],
+        );
+        return alertDialog;
+      },
+    );
+  }
+
+  void hideAlertDialog() {
+    if (alertDialog != null && context != null) {
+      alertDialog = null;
       Navigator.of(context).pop();
     }
   }
-
-
 }

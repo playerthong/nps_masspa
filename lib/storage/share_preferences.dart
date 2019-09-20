@@ -1,26 +1,16 @@
-
-import 'dart:convert';
-import 'package:nps_masspa/model/branch_response.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharePreferences {
-    static final String LOGIN_DATA="LOGIN_DATA";
+  static const String LOGIN_DATA = "LOGIN_DATA";
+  static const String BRANCH_SELECTED = "BRANCH_SELECTED";
 
-    static void saveLoginResponse(BranchResponse branchResponse) async{
-        String data=jsonEncode(branchResponse);
-        SharedPreferences prefs = await SharedPreferences.getInstance();
-        prefs.setString(LOGIN_DATA, data);
-    }
+  static void putString(String key, String value) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setString(key, value);
+  }
 
-    static Future<BranchResponse> getLoginResponse() async{
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      String data=prefs.get(LOGIN_DATA);
-      if(data!=null){
-        Map loginResponseMap = jsonDecode(data);
-        var loginResponse = BranchResponse.fromJson(loginResponseMap);
-        return loginResponse;
-      }else{
-        return null;
-      }
-    }
+  static Future<String> getString(String key) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.get(key);
+  }
 }

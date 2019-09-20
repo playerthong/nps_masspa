@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/scopedmodel/nps_masspa_model.dart';
 import 'package:nps_masspa/screen/nps_choose_branch_screen.dart';
-import 'package:nps_masspa/screen/nps_mood_screen.dart';
+import 'package:nps_masspa/screen/nps_emotion_screen.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:nps_masspa/screen/splash_screen.dart';
 import 'package:nps_masspa/screen/login_screen.dart';

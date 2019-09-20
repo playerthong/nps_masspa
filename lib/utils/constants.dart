@@ -47,3 +47,11 @@ class Config {
     ENV: "prod"
   };
 }
+
+class Emotion {
+  static const NORMAL = 'normal';
+  static const ANGRY = 'angry';
+  static const HAPPY = 'happy';
+  static const SAD = 'sad';
+  static const LOVE = 'love';
+}

@@ -52,10 +52,6 @@ class LoginState extends BaseState<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if(pr==null){
-      pr = new ProgressDialog(context, ProgressDialogType.Normal);
-      pr.setMessage(S.of(context).please_wait);
-    }
    // _showDialog();
     return Scaffold(
         backgroundColor: MasspaColor.primaryColor,
@@ -338,13 +334,14 @@ class LoginState extends BaseState<LoginScreen> {
     countryCode="+"+regionInfo.regionPrefix;
     showProgressDialog();
     LoginResource loginResource=new LoginResource(username: username,password: password,countryCode: countryCode);
-    loginModel.login(loginResource,(httpResponse,apiResponse) async  {
+    LoginModel.login(loginResource,(httpResponse,apiResponse) async  {
         hideProgressDialog();
         if(apiResponse.isSuccess()){
 
         }else{
           //get list branch
           if(apiResponse.error==1167){
+            print(apiResponse.data);
             BranchResponse branchResponse = BranchResponse.fromJson(apiResponse.data);
             ScreenHelper.goToSelectBranch(context,true, branchResponse, loginResource);
             //go to branch screen

@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:nps_masspa/model/branch.dart';
 import 'package:nps_masspa/model/branch_response.dart';
 import 'package:nps_masspa/model/login_resource.dart';
+import 'package:nps_masspa/model/login_response.dart';
+import 'package:nps_masspa/scopedmodel/login_model.dart';
 import 'package:nps_masspa/screen/base_screen.dart';
-import 'package:toast/toast.dart';
+import 'package:nps_masspa/storage/app_shared_perf_helper.dart';
+import 'package:nps_masspa/utils/screen_helper.dart';
+
+typedef BranchClickListener = void Function(Branch branch);
 
 class NPSChooseBranchScreen extends BaseScreen {
   final BranchResponse branchResponse;
   final LoginResource loginResource;
+
   NPSChooseBranchScreen(this.branchResponse, this.loginResource, {Key key, title}) : super(key: key);
-
-
 
   @override
   NPSChooseBranchState createState() {
@@ -22,7 +26,6 @@ class NPSChooseBranchState extends BaseState<NPSChooseBranchScreen> {
   @override
   void initState() {
     super.initState();
-    generateListBranch();
   }
 
   @override
@@ -55,7 +58,7 @@ class NPSChooseBranchState extends BaseState<NPSChooseBranchScreen> {
             ),
             Divider(height: 24.0, color: Colors.transparent,),
             Flexible(
-              child: NPSBranchListWidget(objects: generateListBranch()),
+              child: NPSBranchListWidget(objects: widget.branchResponse.branches, branchClickListener: selectBranch)
             )
           ],
         ),
@@ -63,23 +66,33 @@ class NPSChooseBranchState extends BaseState<NPSChooseBranchScreen> {
     );
   }
 
-  List<Branch> generateListBranch() {
-    List<Branch> objects = List();
-    for (int i = 0; i < 10; i++) {
-      Branch branch = new Branch();
-      branch.branchName = 'Branch ' + (i + 1).toString();
-      //branch.isSelected = false;
+  void selectBranch(Branch branch) async {
+    showProgressDialog();
+    widget.loginResource.spaCode = widget.branchResponse.spaCode;
+    widget.loginResource.branchCode = branch.branchCode;
+    widget.loginResource.role = widget.branchResponse.role;
 
-      objects.add(branch);
-    }
-    return objects;
+    LoginModel.login(widget.loginResource, (httpResponse, apiResponse) async {
+      hideProgressDialog();
+      if (apiResponse.isSuccess()) {
+        print(apiResponse.data);
+        if (apiResponse.data != null) {
+          LoginResponse loginResponse = LoginResponse.fromJson(apiResponse.data);
+          if (loginResponse != null) {
+            AppSharedPrefHelper.setLoginResponse(loginResponse);
+            ScreenHelper.gotoMoodScreen(context, true, loginResponse.branch);
+          }
+        }
+      }
+    });
   }
 }
 
 class NPSBranchListWidget extends StatefulWidget {
   final List<Branch> objects;
+  final BranchClickListener branchClickListener;
 
-  NPSBranchListWidget({Key key, this.objects}) : super(key: key);
+  NPSBranchListWidget({Key key, this.objects, this.branchClickListener}) : super(key: key);
 
   @override
   NPSBranchListState createState() => NPSBranchListState();
@@ -95,14 +108,11 @@ class NPSBranchListState extends State<NPSBranchListWidget> {
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       padding: EdgeInsets.only(left: 240.0, right: 240.0),
-      /*
       itemBuilder: (BuildContext context, int index) {
-        return NPSBranchItemWidget(branch: widget.objects[index], isSelected: widget.objects[index].isSelected, callback: (){
+        return NPSBranchItemWidget(branch: widget.objects[index], isSelected: false, callback: (){
           onItemSelected(widget.objects[index], index);
         });
       },
-      */
-
       separatorBuilder: (BuildContext context, int index){
         return Divider(
             height: 0.0,
@@ -120,6 +130,9 @@ class NPSBranchListState extends State<NPSBranchListWidget> {
       //branch.isSelected = true;
       oldIndexSelected = index;
     });
+    if (widget.branchClickListener != null) {
+      widget.branchClickListener(branch);
+    }
   }
 }
 
@@ -140,24 +153,26 @@ class NPSBranchItemWidgetState extends State<NPSBranchItemWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        widget.callback();
-      },
-      child: Container(
-        child: ListTile(
-          contentPadding: EdgeInsets.all(0.0),
-          title: Container(
-            height: 64.0,
-            alignment: Alignment.center,
-            child: Text(
-              widget.branch.branchName,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-            ),
+    return Card(
+      color: Colors.white,
+      margin: const EdgeInsets.all(0.0),
+      borderOnForeground: true,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(0.0))),
+      clipBehavior: null,
+      elevation: 0.0,
+      child: InkWell(
+        onTap: (){
+          widget.callback();
+        },
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12.0, 20.0, 12.0, 20.0),
+          child: Text(
+            widget.branch.branchName,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+            textAlign: TextAlign.center,
           ),
         ),
-        decoration: widget.isSelected ? BoxDecoration(color: Colors.redAccent) : BoxDecoration(),
-      ),
+      )
     );
   }
 }

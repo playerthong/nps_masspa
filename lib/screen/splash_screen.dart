@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/model/branch_response.dart';
+import 'package:nps_masspa/model/login_response.dart';
 import 'package:nps_masspa/scopedmodel/splash_model.dart';
+import 'package:nps_masspa/storage/app_shared_perf_helper.dart';
 import 'package:nps_masspa/storage/share_preferences.dart';
 import 'package:nps_masspa/utils/masspa_color.dart';
 import 'package:nps_masspa/utils/circle_loading.dart';
@@ -26,15 +28,13 @@ class SplashScreen extends StatefulWidget {
   SplashState createState() => SplashState();
 }
 
-
-class SplashState extends State<SplashScreen>{
-
+class SplashState extends State<SplashScreen> {
   SplashModel splashModel;
-
 
   @override
   void initState() {
-    splashModel=new SplashModel();
+    splashModel = new SplashModel();
+    super.initState();
   }
 
   @override
@@ -62,13 +62,11 @@ class SplashState extends State<SplashScreen>{
               ),
             ),
             new Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: CircleLoading(
-                color: Colors.white,
-                size: 50.0,
-              )
-            )
-
+                padding: const EdgeInsets.all(24.0),
+                child: CircleLoading(
+                  color: Colors.white,
+                  size: 50.0,
+                ))
           ],
         ),
       ),
@@ -76,13 +74,11 @@ class SplashState extends State<SplashScreen>{
   }
 
   void checkLoginSession() async {
-     BranchResponse loginResponse=await SharePreferences.getLoginResponse();
-     if(loginResponse!=null){
-
-     }else{
-
-        ScreenHelper.goToLogin(context,true);
-
-     }
+    LoginResponse loginResponse = await AppSharedPrefHelper.getLoginResponse();
+    if (loginResponse != null && loginResponse.branch != null) {
+      ScreenHelper.gotoMoodScreen(context, true, loginResponse.branch);
+    } else {
+      ScreenHelper.goToLogin(context, true);
+    }
   }
 }
