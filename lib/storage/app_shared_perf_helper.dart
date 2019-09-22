@@ -8,8 +8,13 @@ import 'package:nps_masspa/utils/string_utils.dart';
 class AppSharedPrefHelper {
 
     static void setLoginResponse(LoginResponse loginResponse) async {
-        String jsonString = jsonEncode(loginResponse);
-        SharePreferences.putString(SharePreferences.LOGIN_DATA, jsonString);
+        if(loginResponse==null){
+            SharePreferences.removeString(SharePreferences.LOGIN_DATA);
+        }else{
+            String jsonString = jsonEncode(loginResponse);
+            SharePreferences.putString(SharePreferences.LOGIN_DATA, jsonString);
+        }
+
     }
 
     static Future<LoginResponse> getLoginResponse() async {

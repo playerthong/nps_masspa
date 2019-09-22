@@ -7,9 +7,19 @@ import 'package:nps_masspa/model/login_resource.dart';
 import 'package:nps_masspa/screen/login_screen.dart';
 import 'package:nps_masspa/screen/nps_choose_branch_screen.dart';
 import 'package:nps_masspa/screen/nps_emotion_screen.dart';
-
+import 'package:nps_masspa/screen/splash_screen.dart';
 
 class ScreenHelper{
+
+  static Future goToSplash(BuildContext context, bool isPopPreviousScreen) {
+    if(isPopPreviousScreen){
+      Future future=Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SplashScreen()),);
+      return future;
+    }else{
+      Future future=Navigator.push(context, MaterialPageRoute(builder: (context) => SplashScreen()),);
+      return future;
+    }
+  }
 
   static Future goToSelectBranch(BuildContext context, bool isPopPreviousScreen,BranchResponse branchResponse,LoginResource loginResource) {
     if(isPopPreviousScreen){
@@ -30,7 +40,6 @@ class ScreenHelper{
       Future future=Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()),);
       return future;
     }
-
   }
 
   static Future gotoMoodScreen(BuildContext context, bool isPopPreviousScreen, Branch branch) {

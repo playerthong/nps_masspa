@@ -6,7 +6,16 @@ class SharePreferences {
 
   static void putString(String key, String value) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.setString(key, value);
+    if(value==null || value==""){
+      sharedPreferences.remove(key);
+    }else{
+      sharedPreferences.setString(key, value);
+    }
+  }
+
+  static void removeString(String key) async{
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.remove(key);
   }
 
   static Future<String> getString(String key) async {

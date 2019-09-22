@@ -6,6 +6,8 @@ import 'package:nps_masspa/screen/base_screen.dart';
 import 'package:nps_masspa/utils/constants.dart';
 import 'package:nps_masspa/utils/string_utils.dart';
 import 'package:toast/toast.dart';
+import 'package:nps_masspa/storage/app_shared_perf_helper.dart';
+import 'package:nps_masspa/utils/screen_helper.dart';
 
 class NPSEmotionScreen extends BaseScreen {
   final Branch branch;
@@ -36,7 +38,7 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
             child: Column(
               children: <Widget>[
                 Container(
-                  //padding: EdgeInsets.only(top: 48.0),
+                  padding: EdgeInsets.only(top: 48.0),
                   child: Image.asset('assets/ic_logo.png', height: 128.0, width: 128.0,),
                 ),
                 Expanded(
@@ -54,6 +56,18 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
                         ),
                         GestureDetector(
                           onTap: (){
+                            emotionClick(Emotion.SAD);
+                          },
+                          child: Image.asset("assets/ic_sad.png", width: sizeIcon, height: sizeIcon),
+                        ),
+                        GestureDetector(
+                          onTap: (){
+                            emotionClick(Emotion.NORMAL);
+                          },
+                          child: Image.asset("assets/ic_normal.png", width: sizeIcon, height: sizeIcon),
+                        ),
+                        GestureDetector(
+                          onTap: (){
                             emotionClick(Emotion.HAPPY);
                           },
                           child: Image.asset("assets/ic_happy.png", width: sizeIcon, height: sizeIcon),
@@ -64,18 +78,7 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
                           },
                           child: Image.asset("assets/ic_love.png", width: sizeIcon, height: sizeIcon),
                         ),
-                        GestureDetector(
-                          onTap: (){
-                            emotionClick(Emotion.NORMAL);
-                          },
-                          child: Image.asset("assets/ic_normal.png", width: sizeIcon, height: sizeIcon),
-                        ),
-                        GestureDetector(
-                          onTap: (){
-                            emotionClick(Emotion.SAD);
-                          },
-                          child: Image.asset("assets/ic_sad.png", width: sizeIcon, height: sizeIcon),
-                        )
+
                       ]
                     )
                   )
@@ -101,7 +104,12 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
                         height: 64.0,
                         width: 64.0,
                         alignment: Alignment.center,
-                        child: Icon(Icons.exit_to_app, color: Colors.white,),
+                        child:GestureDetector(
+                          onTap: (){
+                            logoutClick();
+                          },
+                          child: Icon(Icons.exit_to_app, color: Colors.white,),
+                        ),
                       )
                     ],
                   ),
@@ -116,13 +124,14 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
 
   String getAddress() {
     if (widget.branch != null && !StringUtils.isEmpty(widget.branch.address)) {
-      return widget.branch.address + '. Số điện thoại: ' + widget.branch.phone;
+      return widget.branch.branchName+' '+ widget.branch.address + '. Số điện thoại: ' + widget.branch.phone;
     }
     return '';
   }
 
-  void showText() {
-
+  void logoutClick() async{
+     await AppSharedPrefHelper.setLoginResponse(null);
+     ScreenHelper.goToSplash(context, true);
   }
 
   void emotionClick(String emotion) {
