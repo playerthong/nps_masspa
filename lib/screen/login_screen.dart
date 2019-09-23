@@ -3,10 +3,12 @@ import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/model/login_resource.dart';
 import 'package:nps_masspa/model/branch_response.dart';
 import 'package:nps_masspa/scopedmodel/login_model.dart';
+import 'package:nps_masspa/storage/app_shared_perf_helper.dart';
 import 'package:nps_masspa/utils/masspa_color.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/utils/screen_helper.dart';
+import 'package:nps_masspa/utils/string_utils.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:http/http.dart' as http;
 import 'package:nps_masspa/screen/base_screen.dart';
@@ -46,8 +48,11 @@ class LoginState extends BaseState<LoginScreen> {
   @override
   void initState() {
     loginModel = new LoginModel();
-    usernameController.text="0932879813";
-    passwordController.text="123123";
+    //usernameController.text="0932879813";
+    //passwordController.text="123123";
+    getPhoneNumberStorage();
+
+    super.initState();
   }
 
   @override
@@ -124,6 +129,9 @@ class LoginState extends BaseState<LoginScreen> {
                         children: <Widget>[
                           new Expanded(
                             child: TextFormField(
+                              style: TextStyle(
+                                color: Colors.black
+                              ),
                               textAlign: TextAlign.center,
                               keyboardType: TextInputType.phone,
                               controller: usernameController,
@@ -132,7 +140,7 @@ class LoginState extends BaseState<LoginScreen> {
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: S.of(context).login_phone_hint,
-                                hintStyle: TextStyle(color: Colors.black),
+                                hintStyle: TextStyle(color: Colors.grey),
                               ),
                             ),
                           ),
@@ -174,13 +182,16 @@ class LoginState extends BaseState<LoginScreen> {
                         children: <Widget>[
                           new Expanded(
                             child: TextFormField(
+                              style: TextStyle(
+                                color: Colors.black
+                              ),
                               obscureText: true,
                               textAlign: TextAlign.center,
                               controller: passwordController,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: 'Enter your password',
-                                hintStyle: TextStyle(color: Colors.black),
+                                hintStyle: TextStyle(color: Colors.grey),
                               ),
                             ),
                           ),
@@ -295,7 +306,12 @@ class LoginState extends BaseState<LoginScreen> {
     );
   }
 
-
+  void getPhoneNumberStorage() async {
+    String phoneNumber = await AppSharedPrefHelper.getPhoneNumber();
+    if (!StringUtils.isEmpty(phoneNumber)) {
+      usernameController.text = phoneNumber;
+    }
+  }
 
 
   void login() async{

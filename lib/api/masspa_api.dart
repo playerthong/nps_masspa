@@ -38,7 +38,7 @@ class ApiService {
 
 
   static Future<http.Response> login(LoginResource loginResource) async {
-    final response = await http.post(  Constants.BASE_API+'/app/api/public/users/loginPOS',headers: baseHeaders,body: json.encode(loginResource.toJson()));
+    final response = await http.post(  Constants.BASE_API+'/app/api/public/users/loginNPS',headers: baseHeaders,body: json.encode(loginResource.toJson()));
     return response;
   }
 

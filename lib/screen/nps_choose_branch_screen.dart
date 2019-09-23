@@ -80,6 +80,7 @@ class NPSChooseBranchState extends BaseState<NPSChooseBranchScreen> {
           LoginResponse loginResponse = LoginResponse.fromJson(apiResponse.data);
           if (loginResponse != null) {
             AppSharedPrefHelper.setLoginResponse(loginResponse);
+            AppSharedPrefHelper.setPhoneNumber(widget.loginResource.username);
             ScreenHelper.gotoMoodScreen(context, true, loginResponse.branch);
           }
         }

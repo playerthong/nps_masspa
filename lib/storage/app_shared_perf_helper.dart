@@ -8,8 +8,13 @@ import 'package:nps_masspa/utils/string_utils.dart';
 class AppSharedPrefHelper {
 
     static void setLoginResponse(LoginResponse loginResponse) async {
-        String jsonString = jsonEncode(loginResponse);
-        SharePreferences.putString(SharePreferences.LOGIN_DATA, jsonString);
+        if(loginResponse==null){
+            SharePreferences.removeString(SharePreferences.LOGIN_DATA);
+        }else{
+            String jsonString = jsonEncode(loginResponse);
+            SharePreferences.putString(SharePreferences.LOGIN_DATA, jsonString);
+        }
+
     }
 
     static Future<LoginResponse> getLoginResponse() async {
@@ -26,5 +31,13 @@ class AppSharedPrefHelper {
             return loginResponse.branch;
         }
         return null;
+    }
+
+    static void setPhoneNumber(String phoneNumber) {
+        SharePreferences.putString(SharePreferences.PHONE_NUMBER, phoneNumber);
+    }
+
+    static Future<String> getPhoneNumber() async {
+        return await SharePreferences.getString(SharePreferences.PHONE_NUMBER);
     }
 }
