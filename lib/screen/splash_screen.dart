@@ -76,7 +76,7 @@ class SplashState extends State<SplashScreen> {
   void checkLoginSession() async {
     LoginResponse loginResponse = await AppSharedPrefHelper.getLoginResponse();
     if (loginResponse != null && loginResponse.branch != null) {
-      ScreenHelper.gotoMoodScreen(context, true, loginResponse.branch);
+      ScreenHelper.gotoEmotionScreen(context, true, loginResponse.branch, loginResponse.service);
     } else {
       ScreenHelper.goToLogin(context, true);
     }

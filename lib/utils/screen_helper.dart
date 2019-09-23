@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:nps_masspa/model/branch.dart';
 import 'package:nps_masspa/model/branch_response.dart';
 import 'package:nps_masspa/model/login_resource.dart';
+import 'package:nps_masspa/model/service.dart';
 import 'package:nps_masspa/screen/login_screen.dart';
 import 'package:nps_masspa/screen/nps_choose_branch_screen.dart';
 import 'package:nps_masspa/screen/nps_emotion_screen.dart';
@@ -42,11 +43,11 @@ class ScreenHelper{
     }
   }
 
-  static Future gotoMoodScreen(BuildContext context, bool isPopPreviousScreen, Branch branch) {
+  static Future gotoEmotionScreen(BuildContext context, bool isPopPreviousScreen, Branch branch, Service service) {
     if (isPopPreviousScreen) {
-      return Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NPSEmotionScreen(branch: branch)));
+      return Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NPSEmotionScreen(branch: branch, service: service)));
     } else {
-      return Navigator.push(context, MaterialPageRoute(builder: (context) => NPSEmotionScreen(branch: branch)));
+      return Navigator.push(context, MaterialPageRoute(builder: (context) => NPSEmotionScreen(branch: branch, service: service)));
     }
   }
 }

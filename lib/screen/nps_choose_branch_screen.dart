@@ -81,7 +81,7 @@ class NPSChooseBranchState extends BaseState<NPSChooseBranchScreen> {
           if (loginResponse != null) {
             AppSharedPrefHelper.setLoginResponse(loginResponse);
             AppSharedPrefHelper.setPhoneNumber(widget.loginResource.username);
-            ScreenHelper.gotoMoodScreen(context, true, loginResponse.branch);
+            ScreenHelper.gotoEmotionScreen(context, true, loginResponse.branch, loginResponse.service);
           }
         }
       }

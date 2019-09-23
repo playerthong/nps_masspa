@@ -259,7 +259,8 @@ class LoginState extends BaseState<LoginScreen> {
                               color: Colors.transparent,
                               onPressed: () => {},
                               child: Text(
-                                "Forgot your password?",
+                                //"Forgot your password?",
+                                '',
                                 style: TextStyle(
                                     color: Colors.black.withOpacity(0.5)),
                               ),

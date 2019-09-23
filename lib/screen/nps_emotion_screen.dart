@@ -3,19 +3,22 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:nps_masspa/model/branch.dart';
 import 'package:nps_masspa/model/resource/emotion_resource.dart';
+import 'package:nps_masspa/model/service.dart';
 import 'package:nps_masspa/scopedmodel/emotion_model.dart';
 import 'package:nps_masspa/screen/base_screen.dart';
 import 'package:nps_masspa/utils/constants.dart';
 import 'package:nps_masspa/utils/string_utils.dart';
 import 'package:nps_masspa/storage/app_shared_perf_helper.dart';
 import 'package:nps_masspa/utils/screen_helper.dart';
+import 'package:nps_masspa/widget/emotion_logo_widget.dart';
 
 typedef void EmotionClickListener(String emotion);
 
 class NPSEmotionScreen extends BaseScreen {
   final Branch branch;
+  final Service service;
 
-  NPSEmotionScreen({Key key, title, this.branch}) : super(key: key);
+  NPSEmotionScreen({Key key, title, this.branch, this.service}) : super(key: key);
 
   @override
   NPSEmotionState createState() {
@@ -38,12 +41,13 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
       body: Center(
         child: Container(
           height: MediaQuery.of(context).size.height,
+          color: Colors.white,
           child: Form(
             child: Column(
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.only(top: 48.0),
-                  child: Image.asset('assets/ic_logo.png', height: 128.0, width: 128.0,),
+                  child: EmotionLogoWidget(logoUrl: getLogoUrl())
                 ),
                 Expanded(
                   child: Center(
@@ -95,7 +99,14 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
 
   String getAddress() {
     if (widget.branch != null && !StringUtils.isEmpty(widget.branch.address)) {
-      return widget.branch.branchName+' '+ widget.branch.address + '. Số điện thoại: ' + widget.branch.phone;
+      return widget.branch.branchName + ' | ' + widget.branch.address + '. Số điện thoại: ' + widget.branch.phone;
+    }
+    return '';
+  }
+
+  String getLogoUrl() {
+    if (widget.service != null) {
+      return widget.service.logo;
     }
     return '';
   }
@@ -106,7 +117,7 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
   }
 
   void emotionClick(String emotion) {
-    Future.delayed(Duration(milliseconds: 1000), (){
+    Future.delayed(Duration(milliseconds: 200), (){
       setState(() {
         isShowBannerThankYou = true;
       });
@@ -194,6 +205,26 @@ class EmotionWidget extends StatelessWidget {
               )
             ),
             InkWell(
+                onTap: () {
+                  emotionClick(Emotion.SAD);
+                },
+                child: Image.asset(
+                    "assets/ic_sad.png",
+                    width: sizeIcon,
+                    height: sizeIcon
+                )
+            ),
+            InkWell(
+                onTap: () {
+                  emotionClick(Emotion.NORMAL);
+                },
+                child: Image.asset(
+                    "assets/ic_normal.png",
+                    width: sizeIcon,
+                    height: sizeIcon
+                )
+            ),
+            InkWell(
               onTap: () {
                 emotionClick(Emotion.HAPPY);
               },
@@ -209,26 +240,6 @@ class EmotionWidget extends StatelessWidget {
               },
               child: Image.asset(
                       "assets/ic_love.png",
-                      width: sizeIcon,
-                      height: sizeIcon
-              )
-            ),
-            InkWell(
-              onTap: () {
-                emotionClick(Emotion.NORMAL);
-              },
-              child: Image.asset(
-                      "assets/ic_normal.png",
-                      width: sizeIcon,
-                      height: sizeIcon
-              )
-            ),
-            InkWell(
-              onTap: () {
-                emotionClick(Emotion.SAD);
-              },
-              child: Image.asset(
-                      "assets/ic_sad.png",
                       width: sizeIcon,
                       height: sizeIcon
               )
