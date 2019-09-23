@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb57a0cd-b8a1-4f7a-ba73-8c3b65125e1e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/model/resource/emotion_resource.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/scopedmodel/emotion_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/storage/app_shared_perf_helper.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/log_utils.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/string_utils.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/local.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.symlinks/flutter" beforeDir="false" afterPath="$PROJECT_DIR$/ios/.symlinks/flutter" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.symlinks/plugins/libphonenumber" beforeDir="false" afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/libphonenumber" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.symlinks/plugins/shared_preferences" beforeDir="false" afterPath="$PROJECT_DIR$/ios/.symlinks/plugins/shared_preferences" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/App.framework/App" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/App.framework/App" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/App.framework/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Generated.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/mac.xcuserdatad/xcschemes/Pods-Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/mac.xcuserdatad/xcschemes/Pods-Runner.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/mac.xcuserdatad/xcschemes/libPhoneNumber-iOS.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Pods/Pods.xcodeproj/xcuserdata/mac.xcuserdatad/xcschemes/libPhoneNumber-iOS.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/api/masspa_api.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/api/masspa_api.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/scopedmodel/base_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/scopedmodel/base_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/scopedmodel/login_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/scopedmodel/login_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screen/base_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/base_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screen/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/login_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screen/nps_choose_branch_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/nps_choose_branch_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screen/nps_mood_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/nps_emotion_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screen/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/splash_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/storage/share_preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/storage/share_preferences.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/constants.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/constants.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/screen_helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/screen_helper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/nps_emotion_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/nps_emotion_screen.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,42 +19,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/utils/constants.dart">
+        <entry file="file://$PROJECT_DIR$/lib/screen/nps_emotion_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+            <state relative-caret-position="259">
+              <caret line="186" lean-forward="true" selection-start-line="186" selection-end-line="186" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/storage/share_preferences.dart">
+        <entry file="file://$PROJECT_DIR$/../../FlutterSDK/flutter/packages/flutter/lib/src/widgets/basic.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+            <state relative-caret-position="455">
+              <caret line="4237" column="10" lean-forward="true" selection-start-line="4237" selection-start-column="10" selection-end-line="4237" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/screen/nps_emotion_screen.dart">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/screen/splash_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="161">
+              <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/scopedmodel/login_model.dart">
+        <entry file="file://$PROJECT_DIR$/lib/screen/nps_choose_branch_screen.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+            <state relative-caret-position="413">
+              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
               <folding>
-                <element signature="e#0#54#0" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,8 +63,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/scopedmodel/emotion_model.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="11" column="74" lean-forward="true" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
+            <state relative-caret-position="210">
+              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -100,33 +73,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/scopedmodel/base_model.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/api/masspa_api.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+            <state relative-caret-position="168">
+              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../FlutterSDK/flutter/bin/cache/pkg/sky_engine/lib/core/map.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="303" column="37" selection-start-line="303" selection-start-column="37" selection-end-line="303" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/storage/app_shared_perf_helper.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -176,7 +137,6 @@
         <option value="$PROJECT_DIR$/lib/utils/log_utils.dart" />
         <option value="$PROJECT_DIR$/lib/utils/screen_helper.dart" />
         <option value="$PROJECT_DIR$/lib/screen/base_screen.dart" />
-        <option value="$PROJECT_DIR$/lib/storage/share_preferences.dart" />
         <option value="$PROJECT_DIR$/lib/storage/app_shared_perf_helper.dart" />
         <option value="$PROJECT_DIR$/lib/screen/splash_screen.dart" />
         <option value="$PROJECT_DIR$/lib/screen/nps_mood_screen.dart" />
@@ -186,6 +146,7 @@
         <option value="$PROJECT_DIR$/lib/scopedmodel/emotion_model.dart" />
         <option value="$PROJECT_DIR$/lib/utils/constants.dart" />
         <option value="$PROJECT_DIR$/lib/api/masspa_api.dart" />
+        <option value="$PROJECT_DIR$/lib/storage/share_preferences.dart" />
         <option value="$PROJECT_DIR$/lib/screen/nps_emotion_screen.dart" />
       </list>
     </option>
@@ -203,6 +164,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,13 +181,18 @@
               <item name="MasspaReactNative" type="b2602c69:ProjectViewProjectNode" />
               <item name="MasspaReactNative" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MasspaReactNative" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MasspaReactNative" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="screen" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -235,7 +202,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/3.0x" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -297,7 +264,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22039072" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22527473" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -305,12 +272,12 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.3295711" />
-      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.4993895" weight="0.3261851" />
+      <window_info anchor="bottom" id="Run" order="1" sideWeight="0.498779" weight="0.42325056" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.3295711" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.44695258" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.43905193" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50061053" side_tool="true" weight="0.3261851" />
-      <window_info anchor="bottom" id="Flutter Performance" order="6" sideWeight="0.50061053" side_tool="true" weight="0.3261851" />
+      <window_info anchor="bottom" id="Flutter Performance" order="6" sideWeight="0.501221" side_tool="true" weight="0.3261851" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3295711" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32731378" />
       <window_info anchor="bottom" id="Find" order="9" />
@@ -329,11 +296,6 @@
           <url>file://$USER_HOME$/development/flutter/.pub-cache/hosted/pub.dartlang.org/progress_dialog-1.1.0+1/lib/progress_dialog.dart</url>
           <line>46</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/api/masspa_api.dart</url>
-          <line>32</line>
-          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -358,13 +320,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../FlutterSDK/flutter/bin/cache/pkg/sky_engine/lib/core/num.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -495,13 +450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../FlutterSDK/flutter/bin/cache/pkg/sky_engine/lib/async/future.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1327">
-          <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../FlutterSDK/flutter/bin/cache/pkg/sky_engine/lib/isolate/isolate.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6629">
@@ -580,26 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screen/splash_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="46" column="48" lean-forward="true" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/screen/nps_choose_branch_screen.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="135" column="3" lean-forward="true" selection-start-line="135" selection-start-column="3" selection-end-line="135" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -672,16 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/scopedmodel/login_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/screen/login_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -689,13 +607,6 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/scopedmodel/base_model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -720,49 +631,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/scopedmodel/login_model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="55" lean-forward="true" selection-start-line="1" selection-start-column="55" selection-end-line="1" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/storage/app_shared_perf_helper.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="42">
+          <caret line="3" column="54" lean-forward="true" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/storage/share_preferences.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
-          <caret line="6" column="58" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+          <caret line="4" column="56" lean-forward="true" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/api/masspa_api.dart">
+    <entry file="file://$PROJECT_DIR$/lib/scopedmodel/base_model.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="45" column="27" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="98">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/scopedmodel/emotion_model.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" column="74" lean-forward="true" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
+        <state relative-caret-position="210">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screen/nps_choose_branch_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../FlutterSDK/flutter/bin/cache/pkg/sky_engine/lib/async/future.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="314" column="13" selection-start-line="314" selection-start-column="13" selection-end-line="314" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screen/splash_screen.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="40" column="38" lean-forward="true" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../FlutterSDK/flutter/packages/flutter/lib/src/widgets/basic.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="4237" column="10" lean-forward="true" selection-start-line="4237" selection-start-column="10" selection-end-line="4237" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/screen/nps_emotion_screen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="259">
+          <caret line="186" lean-forward="true" selection-start-line="186" selection-end-line="186" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/api/masspa_api.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
