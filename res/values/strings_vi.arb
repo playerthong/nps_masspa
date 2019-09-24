@@ -5,6 +5,9 @@
   "please_wait": "Please wait...",
   "close": "Đóng",
   "login_phone_hint": "Hãy đăng nhập bằng số điện thoại của bạn",
-  "login_title": "Hãy lắng nghe cảm nghĩ từ khách hàng của bạn"
+  "login_title": "Hãy lắng nghe cảm nghĩ từ khách hàng của bạn",
+  "emotion_phone_number": "Số điện thoại",
+  "emotion_thank_you": "Cảm ơn quý khách!",
+  "emotion_have_a_nice_day": "Chúc quý khách một ngày vui vẻ."
 
 }

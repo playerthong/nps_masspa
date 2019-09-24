@@ -5,5 +5,8 @@
   "please_wait": "Please wait...",
   "close": "Close",
   "login_phone_hint": "",
-  "login_title": "Let's listening inside your customer"
+  "login_title": "Let's listening inside your customer",
+  "emotion_phone_number": "Phone number",
+  "emotion_thank_you": "Thank you!",
+  "emotion_have_a_nice_day": "Have a nice day."
 }

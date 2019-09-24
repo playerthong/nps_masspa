@@ -22,6 +22,9 @@ class S implements WidgetsLocalizations {
   TextDirection get textDirection => TextDirection.ltr;
 
   String get close => "Close";
+  String get emotion_have_a_nice_day => "Have a nice day.";
+  String get emotion_phone_number => "Phone number";
+  String get emotion_thank_you => "Thank you!";
   String get login_phone_hint => "";
   String get login_title => "Let's listening inside your customer";
   String get masspa => "Masspa";
@@ -42,11 +45,17 @@ class $vi extends S {
   @override
   String get masspa => "Masspa";
   @override
+  String get emotion_phone_number => "Số điện thoại";
+  @override
   String get welcome => "Welcome";
   @override
   String get close => "Đóng";
   @override
+  String get emotion_thank_you => "Cảm ơn quý khách!";
+  @override
   String get please_wait => "Please wait...";
+  @override
+  String get emotion_have_a_nice_day => "Chúc quý khách một ngày vui vẻ.";
 }
 
 class $en extends S {

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/model/branch.dart';
 import 'package:nps_masspa/model/resource/emotion_resource.dart';
 import 'package:nps_masspa/model/service.dart';
@@ -73,6 +74,25 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
                     Expanded(
                       child: Column(),
                     ),
+                    /*
+                    InkWell(
+                      child: Container(
+                        height: 64.0,
+                        width: 64.0,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'VI',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20.0
+                          )
+                        )
+                      ),
+                      onTap: (){
+
+                      }
+                    ),
+                     */
                     InkWell(
                       child: Container(
                         height: 64.0,
@@ -99,7 +119,8 @@ class NPSEmotionState extends BaseState<NPSEmotionScreen> {
 
   String getAddress() {
     if (widget.branch != null && !StringUtils.isEmpty(widget.branch.address)) {
-      return widget.branch.branchName + ' | ' + widget.branch.address + '. Số điện thoại: ' + widget.branch.phone;
+      String phoneNumberText = S.of(context).emotion_phone_number;
+      return widget.branch.branchName + ' | ' + widget.branch.address + '. $phoneNumberText: ' + widget.branch.phone;
     }
     return '';
   }
