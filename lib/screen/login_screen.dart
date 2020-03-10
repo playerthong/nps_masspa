@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:nps_masspa/generated/i18n.dart';
-import 'package:nps_masspa/model/login_resource.dart';
+import 'package:libphonenumber/libphonenumber.dart';
 import 'package:nps_masspa/model/branch_response.dart';
+import 'package:nps_masspa/model/login_resource.dart';
 import 'package:nps_masspa/scopedmodel/login_model.dart';
+import 'package:nps_masspa/screen/base_screen.dart';
 import 'package:nps_masspa/storage/app_shared_perf_helper.dart';
+import 'package:nps_masspa/utils/dimensions.dart';
 import 'package:nps_masspa/utils/masspa_color.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:nps_masspa/generated/i18n.dart';
 import 'package:nps_masspa/utils/screen_helper.dart';
 import 'package:nps_masspa/utils/string_utils.dart';
-import 'package:progress_dialog/progress_dialog.dart';
-import 'package:http/http.dart' as http;
-import 'package:nps_masspa/screen/base_screen.dart';
-import 'package:nps_masspa/utils/dimensions.dart';
-import 'package:libphonenumber/libphonenumber.dart';
+import 'package:nps_masspa/generated/l10n.dart';
 
 class LoginScreen extends BaseScreen {
 
@@ -54,7 +50,6 @@ class LoginState extends BaseState<LoginScreen> {
     //usernameController.text="0932879813";
     //passwordController.text="123123";
     getPhoneNumberStorage();
-
     super.initState();
   }
 
@@ -187,7 +182,7 @@ class LoginState extends BaseState<LoginScreen> {
                                   controller: passwordController,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
-                                    hintText: 'Enter your password',
+                                    hintText: S.of(context).login_password_hint,
                                     hintStyle: TextStyle(color: Colors.grey),
                                   ),
                                   textInputAction: TextInputAction.done,
@@ -292,7 +287,7 @@ class LoginState extends BaseState<LoginScreen> {
                                   color: Colors.transparent,
                                   onPressed: () => {},
                                   child: Text(
-                                    "Copyright by @Masspa",
+                                    "Copyright 2020 by @Masspa v1.0",
                                     style: TextStyle(
                                         color: Colors.black.withOpacity(0.9)),
                                   ),

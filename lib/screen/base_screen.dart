@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nps_masspa/utils/string_utils.dart';
 import 'package:progress_dialog/progress_dialog.dart';
-import 'package:nps_masspa/generated/i18n.dart';
+import 'package:nps_masspa/generated/l10n.dart';
 
 abstract class BaseScreen extends StatefulWidget {
   final String title;

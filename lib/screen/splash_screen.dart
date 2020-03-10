@@ -1,14 +1,12 @@
+import 'dart:developer';
+import 'package:nps_masspa/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:nps_masspa/generated/i18n.dart';
-import 'package:nps_masspa/model/branch_response.dart';
 import 'package:nps_masspa/model/login_response.dart';
 import 'package:nps_masspa/scopedmodel/splash_model.dart';
 import 'package:nps_masspa/storage/app_shared_perf_helper.dart';
-import 'package:nps_masspa/storage/share_preferences.dart';
-import 'package:nps_masspa/utils/masspa_color.dart';
 import 'package:nps_masspa/utils/circle_loading.dart';
+import 'package:nps_masspa/utils/masspa_color.dart';
 import 'package:nps_masspa/utils/screen_helper.dart';
-import 'dart:developer';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({Key key, this.title}) : super(key: key);

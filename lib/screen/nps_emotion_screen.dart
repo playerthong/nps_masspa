@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:nps_masspa/generated/i18n.dart';
+import 'package:nps_masspa/generated/l10n.dart';
 import 'package:nps_masspa/model/branch.dart';
 import 'package:nps_masspa/model/resource/emotion_resource.dart';
 import 'package:nps_masspa/model/service.dart';
